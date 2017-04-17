@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			class point {
+				dostuff() {
+					console.log('stfuu')
+				}
+			};
+			var b = new point;
+			b.dostuff();
+			class People {
+				constructor(name) { //构造函数
+					this.name = name;
+				}
+				get name() {
+					return this._name.toUpperCase();
+				}
+				set name(name) {
+					this._name = name;
+				}
+				sayName() {
+					console.log(this.name);
+				}
+			}
+			var p = new People("tom");
+			console.log(p.name); //1
+			console.log(p._name); //2
+			p.sayName(); //3
+			//constructor方法是类的默认方法，通过new命令生成对象实例时，
+			//自动调用该方法。一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
+			class Foo {
+			  constructor() {
+			    return Object.create(null);
+			  }
+			}	
+			var bb=new Foo()
+			console.log(bb);
+			let person=new class{
+				constructor(name){
+					this.name=name;
+				}
+				sayName(){
+					console.log(this.name)
+				}
+				
+			}("张三");
+			person.sayName();
+//			let personone=class{
+//				constructor(){
+//					this.name="张三";
+//				}
+//				sayName(){
+//					console.log(this.name)
+//				}
+//				
+//			};
+//			let pers=new personone();
+//				pers.sayName()
+			class Pointt {};
+			console.log(Pointt.name)
+//			class继承
+			class xiaoyao{
+				constructor(x,y){
+					this.x=x;
+					this.y=y
+				}
+				toString() {
+				    return '(' + this.x + ', ' + this.y + ')';
+				}
+
+			}
+			class yan extends xiaoyao{
+				constructor(x,y,color){
+//					console.log(this.color = color)
+//					this.color = color; // ReferenceError
+					super(x, y);
+					console.log(this.color = color)
+//					this.color = color; // 正确
+				}
+				toString() {
+//					var aa
+				    return this.color + ' ' + super.toString(); // 调用父类的toString()
+//				    console.log(this.color + ' ' + super.toString())
+//				    console.log(aa)
+				}			
+			}
+			var yao=new yan(25,28,"green");
+			    yao.toString()
+			var arr = [ ];
+			for(var i=0;  i<10;  i++){
+			    arr [i] = function(){
+			         alert(i)
+			    }
+			}
+			arr [8](); //结果：10
+		</script>
+	</body>
+
+</html>
